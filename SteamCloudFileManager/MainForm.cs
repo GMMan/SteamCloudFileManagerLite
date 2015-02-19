@@ -23,6 +23,17 @@ namespace SteamCloudFileManager
         {
             try
             {
+                uint appId;
+                if (string.IsNullOrWhiteSpace(appIdTextBox.Text))
+                {
+                    MessageBox.Show(this, "Please enter an App ID.", "Failed to connect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!uint.TryParse(appIdTextBox.Text.Trim(), out appId))
+                {
+                    MessageBox.Show(this, "Please make sure the App ID you entered is valid.", "Failed to connect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 storage = RemoteStorage.CreateInstance(uint.Parse(appIdTextBox.Text));
                 //storage = new RemoteStorageLocal("remote", uint.Parse(appIdTextBox.Text));
                 refreshButton.Enabled = true;
