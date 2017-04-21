@@ -1,0 +1,3 @@
+[submodule "Steamworks.NET"]
+	path = Steamworks.NET
+	url = https://github.com/rlabrecque/Steamworks.NET.git
