@@ -13,6 +13,8 @@ namespace SteamCloudFileManager
     public partial class MainForm : Form
     {
         IRemoteStorage storage;
+        // Item1 = cloud name, Item2 = path on disk
+        Queue<Tuple<string, string>> uploadQueue = new Queue<Tuple<string, string>>();
 
         public MainForm()
         {
@@ -153,6 +155,75 @@ namespace SteamCloudFileManager
         private void remoteListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             downloadButton.Enabled = deleteButton.Enabled = (storage != null && remoteListView.SelectedIndices.Count > 0);
+        }
+
+        private void uploadBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = (BackgroundWorker)sender;
+            List<string> failedFiles = new List<string>();
+            while (uploadQueue.Count > 0)
+            {
+                var uploadItem = uploadQueue.Dequeue();
+                IRemoteFile file = storage.GetFile(uploadItem.Item1);
+                try
+                {
+                    byte[] data = File.ReadAllBytes(uploadItem.Item2);
+                    if (!file.WriteAllBytes(data))
+                        failedFiles.Add(uploadItem.Item1);
+                }
+                catch (IOException ex)
+                {
+                    failedFiles.Add(uploadItem.Item1);
+                }
+            }
+
+            e.Result = failedFiles;
+        }
+
+        private void uploadButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                disableUploadGui();
+                foreach (var selectedFile in openFileDialog1.FileNames)
+                {
+                    uploadQueue.Enqueue(new Tuple<string, string>(Path.GetFileName(selectedFile).ToLowerInvariant(), selectedFile));
+                }
+                uploadBackgroundWorker.RunWorkerAsync();
+            }
+        }
+
+        void disableUploadGui()
+        {
+            // Disables app switching, refresh, and upload button
+            connectButton.Enabled = false;
+            refreshButton.Enabled = false;
+            uploadButton.Enabled = false;
+            uploadButton.Text = "Uploading...";
+        }
+
+        void enableUploadGui()
+        {
+            connectButton.Enabled = true;
+            refreshButton.Enabled = true;
+            uploadButton.Enabled = true;
+            uploadButton.Text = "Upload";
+        }
+
+        private void uploadBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            var failedList = e.Result as List<string>;
+            if (failedList.Count == 0)
+            {
+                MessageBox.Show(this, "Upload complete.", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                failedList.Insert(0, "The following files have failed to upload:");
+                MessageBox.Show(this, string.Join(Environment.NewLine, failedList), Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            enableUploadGui();
+            refreshButton_Click(this, EventArgs.Empty);
         }
     }
 }
