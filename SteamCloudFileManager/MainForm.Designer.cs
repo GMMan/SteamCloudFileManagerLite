@@ -43,6 +43,8 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.downloadButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.uploadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // remoteListView
@@ -164,11 +166,26 @@
             this.saveFileDialog1.Filter = "All files|*";
             this.saveFileDialog1.Title = "Save remote file as...";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Multiselect = true;
+            this.openFileDialog1.Title = "Select files to upload";
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.Location = new System.Drawing.Point(174, 232);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(75, 23);
+            this.uploadButton.TabIndex = 8;
+            this.uploadButton.Text = "Upload";
+            this.uploadButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 267);
+            this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.remoteListView);
@@ -201,6 +218,8 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button uploadButton;
     }
 }
 
