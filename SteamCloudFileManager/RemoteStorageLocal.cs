@@ -39,11 +39,11 @@ namespace SteamCloudFileManager
             return files;
         }
 
-        public bool GetQuota(out int totalBytes, out int availableBytes)
+        public bool GetQuota(out ulong totalBytes, out ulong availableBytes)
         {
             DriveInfo di = new DriveInfo(Path.GetPathRoot(Path.GetFullPath(basePath)));
-            totalBytes = di.TotalSize > int.MaxValue ? int.MaxValue : (int)di.TotalSize;
-            availableBytes = di.AvailableFreeSpace > int.MaxValue ? int.MaxValue : (int)di.AvailableFreeSpace;
+            totalBytes = (ulong)(di.TotalSize > int.MaxValue ? int.MaxValue : (int)di.TotalSize);
+            availableBytes = (ulong)(di.AvailableFreeSpace > int.MaxValue ? int.MaxValue : (int)di.AvailableFreeSpace);
             return true;
         }
 

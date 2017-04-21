@@ -73,7 +73,7 @@ namespace SteamCloudFileManager
         void updateQuota()
         {
             if (storage == null) throw new InvalidOperationException("Not connected");
-            int totalBytes, availBytes;
+            ulong totalBytes, availBytes;
             storage.GetQuota(out totalBytes, out availBytes);
             quotaLabel.Text = string.Format("{0}/{1} bytes used", totalBytes - availBytes, totalBytes);
         }
