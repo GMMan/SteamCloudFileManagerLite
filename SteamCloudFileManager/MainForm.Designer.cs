@@ -61,10 +61,9 @@
             this.columnHeader5});
             this.remoteListView.FullRowSelect = true;
             this.remoteListView.HideSelection = false;
-            this.remoteListView.Location = new System.Drawing.Point(20, 50);
-            this.remoteListView.Margin = new System.Windows.Forms.Padding(4);
+            this.remoteListView.Location = new System.Drawing.Point(15, 41);
             this.remoteListView.Name = "remoteListView";
-            this.remoteListView.Size = new System.Drawing.Size(787, 227);
+            this.remoteListView.Size = new System.Drawing.Size(591, 185);
             this.remoteListView.TabIndex = 0;
             this.remoteListView.UseCompatibleStateImageBehavior = false;
             this.remoteListView.View = System.Windows.Forms.View.Details;
@@ -95,27 +94,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "AppID:";
             // 
             // appIdTextBox
             // 
-            this.appIdTextBox.Location = new System.Drawing.Point(77, 17);
-            this.appIdTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.appIdTextBox.Location = new System.Drawing.Point(58, 14);
             this.appIdTextBox.Name = "appIdTextBox";
-            this.appIdTextBox.Size = new System.Drawing.Size(132, 22);
+            this.appIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.appIdTextBox.TabIndex = 2;
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(219, 15);
-            this.connectButton.Margin = new System.Windows.Forms.Padding(4);
+            this.connectButton.Location = new System.Drawing.Point(164, 12);
             this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(100, 28);
+            this.connectButton.Size = new System.Drawing.Size(75, 23);
             this.connectButton.TabIndex = 3;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
@@ -124,10 +120,9 @@
             // refreshButton
             // 
             this.refreshButton.Enabled = false;
-            this.refreshButton.Location = new System.Drawing.Point(327, 15);
-            this.refreshButton.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshButton.Location = new System.Drawing.Point(245, 12);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(100, 28);
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 4;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -137,10 +132,9 @@
             // 
             this.quotaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.quotaLabel.Location = new System.Drawing.Point(435, 11);
-            this.quotaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.quotaLabel.Location = new System.Drawing.Point(326, 9);
             this.quotaLabel.Name = "quotaLabel";
-            this.quotaLabel.Size = new System.Drawing.Size(373, 28);
+            this.quotaLabel.Size = new System.Drawing.Size(280, 23);
             this.quotaLabel.TabIndex = 5;
             this.quotaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -148,10 +142,9 @@
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteButton.Enabled = false;
-            this.deleteButton.Location = new System.Drawing.Point(124, 286);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteButton.Location = new System.Drawing.Point(93, 232);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(100, 28);
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 6;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -161,10 +154,9 @@
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.downloadButton.Enabled = false;
-            this.downloadButton.Location = new System.Drawing.Point(16, 286);
-            this.downloadButton.Margin = new System.Windows.Forms.Padding(4);
+            this.downloadButton.Location = new System.Drawing.Point(12, 232);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(100, 28);
+            this.downloadButton.Size = new System.Drawing.Size(75, 23);
             this.downloadButton.TabIndex = 7;
             this.downloadButton.Text = "Download";
             this.downloadButton.UseVisualStyleBackColor = true;
@@ -183,10 +175,10 @@
             // uploadButton
             // 
             this.uploadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.uploadButton.Location = new System.Drawing.Point(232, 286);
-            this.uploadButton.Margin = new System.Windows.Forms.Padding(4);
+            this.uploadButton.Enabled = false;
+            this.uploadButton.Location = new System.Drawing.Point(174, 232);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(100, 28);
+            this.uploadButton.Size = new System.Drawing.Size(75, 23);
             this.uploadButton.TabIndex = 8;
             this.uploadButton.Text = "Upload";
             this.uploadButton.UseVisualStyleBackColor = true;
@@ -199,9 +191,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 329);
+            this.ClientSize = new System.Drawing.Size(618, 267);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.deleteButton);
@@ -212,7 +204,6 @@
             this.Controls.Add(this.appIdTextBox);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Steam Cloud File Manager";
             this.ResumeLayout(false);

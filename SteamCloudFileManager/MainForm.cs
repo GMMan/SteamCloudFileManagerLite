@@ -39,6 +39,7 @@ namespace SteamCloudFileManager
                 storage = RemoteStorage.CreateInstance(uint.Parse(appIdTextBox.Text));
                 //storage = new RemoteStorageLocal("remote", uint.Parse(appIdTextBox.Text));
                 refreshButton.Enabled = true;
+                uploadButton.Enabled = true;
                 refreshButton_Click(this, EventArgs.Empty);
             }
             catch (Exception ex)
